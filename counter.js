@@ -74,7 +74,7 @@
         }
     }
 
-    const counters = document.querySelectorAll('[data-sysflow-counter');
+    const counters = document.querySelectorAll('[data-sysflow-counter]');
 
     if(counters) {
         counters.forEach(counter => {
