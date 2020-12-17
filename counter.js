@@ -10,13 +10,13 @@
             this.mins = 0;
             this.secs = 0;
             this.daysField = elem.querySelector("[data-sysflow-counter-days]");
-            this.daysValue = this.daysField ? this.daysField.querySelector("span") : null;
+            this.daysValue = this.daysField ? this.daysField.querySelector("[data-sysflow-counter-days-value]") : null;
             this.hoursField = elem.querySelector("[data-sysflow-counter-hours]");
-            this.hoursValue = this.hoursField ? this.hoursField.querySelector("span") : null;
+            this.hoursValue = this.hoursField ? this.hoursField.querySelector("[data-sysflow-counter-hours-value]") : null;
             this.minsField = elem.querySelector("[data-sysflow-counter-mins]");
-            this.minsValue = this.minsField ? this.minsField.querySelector("span") : null;
+            this.minsValue = this.minsField ? this.minsField.querySelector("[data-sysflow-counter-mins-value]") : null;
             this.secsField = elem.querySelector("[data-sysflow-counter-secs]");
-            this.secsValue = this.secsField ? this.secsField.querySelector("span") : null;
+            this.secsValue = this.secsField ? this.secsField.querySelector("[data-sysflow-counter-secs-value]") : null;
             this.assignEvents();
         }
     
