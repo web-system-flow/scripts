@@ -5,11 +5,39 @@
         constructor(elem) {
             this.store = elem;
             this.storeName = elem.dataset.sysflowStore;
+            this.form = elem.querySelector("form");
+            this.inputs = elem.querySelectorAll("input");
+            this.data = {};
             this.assignEvents();
         }
 
         assignEvents(){
-            console.log(this.storeName);
+            this.listenToInputs();
+        }
+
+        listenToInputs(){
+            this.inputs.forEach(i=> {
+                i.addEventListener("change",this.getData.bind(this))
+            })
+        }
+
+        getData(){
+            this.data = {};
+            this.form.querySelectorAll("input").forEach(i => {
+                this.data.push({
+                    name: i.name,
+                    value: i.value
+                })
+            })
+            console.log(this.data)
+        }
+
+        readData(){
+            localStorage.getItem(this.storeName);
+        }
+
+        saveData(){
+            localStorage.setItem(this.storeName, this.data);
         }
     }
 
