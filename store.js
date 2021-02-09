@@ -33,7 +33,7 @@
 
         getSavedData(){
             if(this.savedData){
-                this.data = JSON.parse(this.saveData);
+                this.data = JSON.parse(this.savedData);
                 this.inputs.forEach(i => {
                     let saved = this.data[i.name];
                     if(saved) i.value = saved;
