@@ -24,10 +24,7 @@
         getData(){
             this.data = {};
             this.form.querySelectorAll("input").forEach(i => {
-                this.data.push({
-                    name: i.name,
-                    value: i.value
-                })
+                this.data[i.name] = i.value;
             })
             console.log(this.data)
         }
