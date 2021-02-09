@@ -6,15 +6,17 @@
             this.store = elem;
             this.storeName = elem.dataset.sysflowStore;
             this.form = elem.querySelector("form");
-            this.inputs = this.form.querySelectorAll("input");
+            this.inputs = this.form ? this.form.querySelectorAll("input") : null;
             this.data = {};
             this.savedData = localStorage.getItem(this.storeName);
             this.assignEvents();
         }
 
         assignEvents(){
-            this.getSavedData();
-            this.listenToInputs();
+            if(this.inputs){
+                this.getSavedData();
+                this.listenToInputs();
+            }
         }
 
         listenToInputs(){
