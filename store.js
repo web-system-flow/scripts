@@ -6,35 +6,43 @@
             this.store = elem;
             this.storeName = elem.dataset.sysflowStore;
             this.form = elem.querySelector("form");
-            this.inputs = elem.querySelectorAll("input");
+            this.inputs = this.form.querySelectorAll("input");
             this.data = {};
+            this.savedData = localStorage.getItem(this.storeName);
             this.assignEvents();
         }
 
         assignEvents(){
+            this.getSavedData();
             this.listenToInputs();
         }
 
         listenToInputs(){
             this.inputs.forEach(i=> {
-                i.addEventListener("change",this.getData.bind(this))
+                i.addEventListener("keyup",this.getInputData.bind(this))
             })
         }
 
-        getData(){
+        getInputData(){
             this.data = {};
-            this.form.querySelectorAll("input").forEach(i => {
+            this.inputs.forEach(i => {
                 this.data[i.name] = i.value;
             })
-            console.log(this.data)
+            this.saveData();
         }
 
-        readData(){
-            localStorage.getItem(this.storeName);
+        getSavedData(){
+            if(this.saveData){
+                this.data = JSON.parse(this.saveData);
+                this.inputs.forEach(i => {
+                    let saved = this.data[i.name];
+                    if(saved) i.value = saved;
+                })
+            }
         }
 
         saveData(){
-            localStorage.setItem(this.storeName, this.data);
+            localStorage.setItem(this.storeName, JSON.stringify(this.data));
         }
     }
 
