@@ -1,7 +1,7 @@
 // SYSTEM FLOW Store -> Save in Local Storage your Input data
 (()=> {
 
-    class Store {
+    class Stores {
         constructor(elem) {
             this.store = elem;
             this.storeName = elem.dataset.sysflowStore;
@@ -17,7 +17,7 @@
 
     if(storages.length) {
         storages.forEach(store => {
-            console.log()
+            new Stores(store);
         })
     }
 
