@@ -54,6 +54,8 @@
     }
 
     const cookie = document.querySelector('[data-sysflow-cookie]');
-    new Cookies(cookie);
+    if (cookie) {
+        new Cookies(cookie);
+    }
 
 })();
