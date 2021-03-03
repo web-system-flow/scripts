@@ -1,4 +1,4 @@
-// SYSTEM FLOW Hide/Show Container by Url Query + Replace Text with Query Value
+// SYSTEM FLOW Add Attribute to Form by Url Query
 (()=> {
 
     class Query {
@@ -39,7 +39,7 @@
     }
 
 
-    const queries = document.querySelectorAll('[data-sysflow-query]');
+    const queries = document.querySelectorAll('[data-sysflow-query-form]');
 
     if(queries.length) {
 
@@ -47,24 +47,12 @@
 
         queries.forEach(q => {
 
-            const queryKey = q.dataset.sysflowQuery;
+            const queryKey = q.dataset.sysflowQueryForm;
             const queryValue = query.get(queryKey);
 
-            //hide container with query not present in url
-            if(!queryValue){
-                q.style.display = "none";
-            } else {
-                //show text of query inside of container
-                const qTexts = q.querySelectorAll('[data-sysflow-query-text');
-                if(qTexts.length){
-                    qTexts.forEach(qText => {
-                        if (queryValue == 'undefined') {
-                            qText.style.display = "none"
-                        } else {
-                            qText.innerText = queryValue;
-                        }
-                    })
-                }
+            //add attribute to form
+            if(queryValue){
+                q.dataset[queryKey]=queryValue;
             }
             
         })
