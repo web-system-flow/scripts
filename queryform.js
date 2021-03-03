@@ -53,10 +53,9 @@
             //add hidden input to the form
             if(queryValue){
                 const hiddenInput = document.createElement("input");
-                hiddenInput.type="text";
+                hiddenInput.type="hidden";
                 hiddenInput.name=queryKey;
                 hiddenInput.value=queryValue;
-                hiddenInput.className="invisible";
                 q.appendChild(hiddenInput);
             }
             
