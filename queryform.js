@@ -50,9 +50,14 @@
             const queryKey = q.dataset.sysflowQueryForm;
             const queryValue = query.get(queryKey);
 
-            //add attribute to form
+            //add hidden input to the form
             if(queryValue){
-                q.dataset[queryKey]=queryValue;
+                const hiddenInput = document.createElement("input");
+                hiddenInput.type="text";
+                hiddenInput.name=queryKey;
+                hiddenInput.value=queryValue;
+                hiddenInput.className="invisible";
+                q.appendChild(hiddenInput);
             }
             
         })
